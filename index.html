@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teen Health HQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .modal {
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+        .admin-actions {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm border-b sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-purple-600">Teen Health HQ</h1>
+                </div>
+                <nav class="hidden md:flex space-x-4">
+                    <button onclick="showSection('home')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-purple-600 bg-purple-50">Home</button>
+                    <button onclick="showSection('sleep')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-gray-600 hover:text-purple-600 hover:bg-purple-50">Sleep</button>
+                    <button onclick="showSection('nutrition')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-gray-600 hover:text-purple-600 hover:bg-purple-50">Nutrition</button>
+                    <button onclick="showSection('productivity')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-gray-600 hover:text-purple-600 hover:bg-purple-50">Productivity</button>
+                    <button onclick="showSection('time-management')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-gray-600 hover:text-purple-600 hover:bg-purple-50">Time Management</button>
+                    <button onclick="showSection('blog')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-gray-600 hover:text-purple-600 hover:bg-purple-50">Blog</button>
+                    <button onclick="showSection('about')" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 text-gray-600 hover:text-purple-600 hover:bg-purple-50">About</button>
+                </nav>
+                <div class="md:hidden">
+                    <select onchange="handleSectionChange(this)" class="bg-white border border-gray-300 rounded-md px-3 py-2">
+                        <option value="home">Home</option>
+                        <option value="sleep">Sleep</option>
+                        <option value="nutrition">Nutrition</option>
+                        <option value="productivity">Productivity</option>
+                        <option value="time-management">Time Management</option>
+                        <option value="blog">Blog</option>
+                        <option value="about">About</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Home Section -->
+        <section id="home" class="fade-in">
+            <div class="space-y-12">
+                <div class="text-center py-16 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6">Teen Health HQ</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Science-based guidance for teens on sleep, nutrition, productivity, time management, and overall well-being. 
+                        You're not alone on this journey—we're here to help.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer transform hover:-translate-y-1" onclick="showSection('sleep')">
+                        <div class="bg-gradient-to-br from-purple-400 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
+                            🌙
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 text-center">Sleep</h3>
+                        <p class="text-gray-600 text-center text-sm">Master your sleep schedule and improve your overall health</p>
+                        <div class="text-center mt-4">
+                            <span class="text-purple-600 text-sm font-medium">Explore →</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer transform hover:-translate-y-1" onclick="showSection('nutrition')">
+                        <div class="bg-gradient-to-br from-green-400 to-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
+                            🍎
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 text-center">Nutrition</h3>
+                        <p class="text-gray-600 text-center text-sm">Fuel your body and brain for optimal performance</p>
+                        <div class="text-center mt-4">
+                            <span class="text-purple-600 text-sm font-medium">Explore →</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer transform hover:-translate-y-1" onclick="showSection('productivity')">
+                        <div class="bg-gradient-to-br from-blue-400 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
+                            ⚡
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 text-center">Productivity</h3>
+                        <p class="text-gray-600 text-center text-sm">Accomplish more with less stress and burnout</p>
+                        <div class="text-center mt-4">
+                            <span class="text-purple-600 text-sm font-medium">Explore →</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer transform hover:-translate-y-1" onclick="showSection('time-management')">
+                        <div class="bg-gradient-to-br from-orange-400 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl">
+                            ⏰
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 text-center">Time Management</h3>
+                        <p class="text-gray-600 text-center text-sm">Master your schedule and create space for what matters</p>
+                        <div class="text-center mt-4">
+                            <span class="text-purple-600 text-sm font-medium">Explore →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">What We Offer</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">😴</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Sleep Solutions</h3>
+                            <p class="text-gray-600">Evidence-based strategies to improve sleep quality and establish healthy sleep schedules tailored for teen biology.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">📖</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Study Techniques</h3>
+                            <p class="text-gray-600">Cognitive science-backed methods to enhance learning efficiency, retention, and academic performance without burnout.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">💖</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Burnout Prevention</h3>
+                            <p class="text-gray-600">Practical tools to recognize early signs of burnout and implement sustainable self-care practices for long-term well-being.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- Sleep Section (Full Featured) -->
+        <section id="sleep" class="hidden fade-in">
+            <div class="space-y-12">
+                <div class="text-center py-8">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Sleep Science for Teens</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Understanding your sleep needs and how to create healthy sleep habits during adolescence
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Why Sleep Matters</h2>
+                        <p class="text-gray-700 mb-4">
+                            During adolescence, your brain is undergoing significant development, particularly in areas responsible for decision-making, emotional regulation, and memory consolidation. Sleep is when much of this critical development occurs.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Teens need 8-10 hours of sleep per night, yet most get only 6-7 hours. Chronic sleep deprivation affects academic performance, emotional well-being, physical health, and even safety (drowsy driving is a serious concern).
+                        </p>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-purple-800 mb-2">Sleep & Academic Performance</h3>
+                            <p class="text-purple-700 text-sm">
+                                Studies show that students who get adequate sleep have better grades, improved concentration, enhanced memory retention, and greater problem-solving abilities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Teen Sleep Biology</h2>
+                        <p class="text-gray-700 mb-4">
+                            Your circadian rhythm (internal body clock) naturally shifts during puberty, making you feel more alert later at night and making it harder to wake up early in the morning. This is called "sleep phase delay" and is biological, not laziness.
+                        </p>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Melatonin Shift</h3>
+                                <p class="text-gray-600 text-sm">The hormone that makes you sleepy is released about 2 hours later in teens than in adults or children.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Sleep Pressure</h3>
+                                <p class="text-gray-600 text-sm">It takes longer for teens to build up "sleep pressure" (the physiological need for sleep).</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">REM Sleep</h3>
+                                <p class="text-gray-600 text-sm">Teens need more REM sleep, which is crucial for emotional regulation and memory consolidation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Practical Sleep Solutions</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Gradual Adjustment</h3>
+                            <p class="text-gray-600">Shift your bedtime 15 minutes earlier each night until you reach your target. This is more effective than trying to change all at once.</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Digital Sunset</h3>
+                            <p class="text-gray-600">Stop using screens at least 60 minutes before bed. Blue light suppresses melatonin production, making it harder to fall asleep.</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Consistent Schedule</h3>
+                            <p class="text-gray-600">Wake up at the same time every day, even weekends. This regulates your body clock more effectively than focusing only on bedtime.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">7-Day Sleep Challenge</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-7 gap-4">
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 1</h3>
+                            <p class="text-sm text-gray-700">Set consistent wake time</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 2</h3>
+                            <p class="text-sm text-gray-700">No screens 1hr before bed</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 3</h3>
+                            <p class="text-sm text-gray-700">Create bedtime routine</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 4</h3>
+                            <p class="text-sm text-gray-700">Optimize sleep environment</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 5</h3>
+                            <p class="text-sm text-gray-700">Avoid caffeine after 2pm</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 6</h3>
+                            <p class="text-sm text-gray-700">Get morning sunlight</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-purple-700 mb-2">Day 7</h3>
+                            <p class="text-sm text-gray-700">Reflect on improvements</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition Section (Full Featured) -->
+        <section id="nutrition" class="hidden fade-in">
+            <div class="space-y-12">
+                <div class="text-center py-8">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Teen Nutrition Guide</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Fueling your body and brain for optimal performance during adolescence
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Why Nutrition Matters for Teens</h2>
+                        <p class="text-gray-700 mb-4">
+                            Adolescence is a period of rapid growth and development. Your body needs proper nutrition to support this growth, maintain energy levels, support brain function, and establish healthy habits that will last a lifetime.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Poor nutrition can lead to fatigue, difficulty concentrating, mood swings, weakened immune system, and even impact academic performance and athletic abilities.
+                        </p>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-green-800 mb-2">Brain Food</h3>
+                            <p class="text-green-700 text-sm">
+                                The brain consumes about 20% of your daily calories. Proper nutrition directly impacts cognitive function, memory, and concentration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Key Nutrients for Teens</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-blue-600 font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Protein</h3>
+                                    <p class="text-gray-600 text-sm">Essential for growth and repair. Sources: lean meats, fish, eggs, beans, tofu, dairy.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-green-100 w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-green-600 font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Complex Carbohydrates</h3>
+                                    <p class="text-gray-600 text-sm">Provide sustained energy. Sources: whole grains, fruits, vegetables, legumes.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-purple-600 font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Healthy Fats</h3>
+                                    <p class="text-gray-600 text-sm">Support brain health. Sources: avocados, nuts, seeds, olive oil, fatty fish.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-orange-100 w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-orange-600 font-bold text-sm">4</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Calcium & Vitamin D</h3>
+                                    <p class="text-gray-600 text-sm">Critical for bone development. Sources: dairy, fortified plant milks, leafy greens, sunlight.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Practical Nutrition Strategies</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Power Breakfast</h3>
+                            <p class="text-gray-600">Never skip breakfast. Include protein + complex carbs (eggs & whole wheat toast, Greek yogurt & berries, oatmeal & nuts).</p>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Smart Snacking</h3>
+                            <p class="text-gray-600">Choose snacks that combine protein + fiber (apple & peanut butter, hummus & veggies, cheese & whole grain crackers).</p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Hydration</h3>
+                            <p class="text-gray-600">Drink water throughout the day. Dehydration causes fatigue and poor concentration. Carry a reusable water bottle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Sample Meal Plan for Busy Teens</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h3 class="font-bold text-green-700 mb-3">Breakfast</h3>
+                            <p class="text-sm text-gray-700">Overnight oats with Greek yogurt, berries, and chia seeds</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h3 class="font-bold text-orange-700 mb-3">Lunch</h3>
+                            <p class="text-sm text-gray-700">Whole grain wrap with turkey, avocado, veggies + apple + water</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h3 class="font-bold text-purple-700 mb-3">Dinner</h3>
+                            <p class="text-sm text-gray-700">Baked salmon, quinoa, roasted vegetables + water</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-white p-4 rounded-lg">
+                        <h3 class="font-bold text-blue-700 mb-2">Snacks</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Greek yogurt</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Trail mix</span>
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Veggies & hummus</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Cheese & whole grain crackers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productivity Section (Full Featured) -->
+        <section id="productivity" class="hidden fade-in">
+            <div class="space-y-12">
+                <div class="text-center py-8">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Teen Productivity Mastery</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Science-backed techniques to accomplish more with less stress and burnout
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Understanding Productivity</h2>
+                        <p class="text-gray-700 mb-4">
+                            Productivity isn't about doing more—it's about doing what matters most with focused energy. For teens juggling academics, extracurriculars, social life, and personal growth, strategic productivity is essential.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            The key is working with your brain's natural rhythms, not against them. This means understanding when you're most focused, how long you can concentrate before needing a break, and what environment helps you do your best work.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-800 mb-2">The Productivity Paradox</h3>
+                            <p class="text-blue-700 text-sm">
+                                Sometimes doing less actually helps you accomplish more. Strategic rest and recovery are essential components of true productivity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Cognitive Science Principles</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Attention Residue</h3>
+                                <p class="text-gray-600 text-sm">When you switch tasks, part of your attention remains with the previous task, reducing focus on the new one. Minimize task-switching for better productivity.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Zeigarnik Effect</h3>
+                                <p class="text-gray-600 text-sm">Unfinished tasks occupy mental space. Writing down tasks or creating closure (even temporary) frees up cognitive resources.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Parkinson's Law</h3>
+                                <p class="text-gray-600 text-sm">Work expands to fill the time available. Setting specific time limits for tasks increases efficiency.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Flow State</h3>
+                                <p class="text-gray-600 text-sm">When challenge level matches skill level, you enter "flow"—a state of deep focus and enjoyment. Structure tasks to facilitate flow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Practical Productivity Systems</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Pomodoro Technique</h3>
+                            <p class="text-gray-600">Work for 25 minutes, then take a 5-minute break. After 4 cycles, take a 15-30 minute break. This aligns with natural attention spans.</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">2-Minute Rule</h3>
+                            <p class="text-gray-600">If a task takes less than 2 minutes, do it immediately. This prevents small tasks from accumulating and becoming overwhelming.</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Eisenhower Matrix</h3>
+                            <p class="text-gray-600">Categorize tasks by urgency and importance. Focus on important but not urgent tasks to prevent crises.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">7-Day Productivity Challenge</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-7 gap-4">
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 1</h3>
+                            <p class="text-sm text-gray-700">Implement Pomodoro</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 2</h3>
+                            <p class="text-sm text-gray-700">Use 2-Minute Rule</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 3</h3>
+                            <p class="text-sm text-gray-700">Prioritize with Eisenhower</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 4</h3>
+                            <p class="text-sm text-gray-700">Single-tasking day</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 5</h3>
+                            <p class="text-sm text-gray-700">Digital detox hour</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 6</h3>
+                            <p class="text-sm text-gray-700">Review & adjust</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg text-center">
+                            <h3 class="font-bold text-blue-700 mb-2">Day 7</h3>
+                            <p class="text-sm text-gray-700">Plan next week</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Management Section (Full Featured) -->
+        <section id="time-management" class="hidden fade-in">
+            <div class="space-y-12">
+                <div class="text-center py-8">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Teen Time Management</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Mastering your schedule to reduce stress and create space for what matters
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Why Time Management Matters</h2>
+                        <p class="text-gray-700 mb-4">
+                            Teens today face unprecedented demands on their time—academics, extracurriculars, social obligations, family responsibilities, and personal interests. Without effective time management, stress and burnout are almost inevitable.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Good time management isn't about squeezing more activities into your day—it's about consciously choosing how to spend your limited time on what truly matters to you.
+                        </p>
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-orange-800 mb-2">The Opportunity Cost</h3>
+                            <p class="text-orange-700 text-sm">
+                                Every hour spent on one activity is an hour you can't spend on another. Time management helps you make conscious choices aligned with your values and goals.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Understanding Your Time</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Energy Mapping</h3>
+                                <p class="text-gray-600 text-sm">Track your energy levels for a week. When are you most alert? When do you slump? Schedule demanding tasks during high-energy periods.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Time Audit</h3>
+                                <p class="text-gray-600 text-sm">For 3 days, track how you actually spend your time. You'll likely discover surprising time drains that can be minimized.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">The Planning Fallacy</h3>
+                                <p class="text-gray-600 text-sm">We consistently underestimate how long tasks will take. Add 25-50% buffer time to your estimates.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Decision Fatigue</h3>
+                                <p class="text-gray-600 text-sm">Making decisions depletes mental energy. Reduce daily decisions by creating routines and systems (meal plans, outfit planning, etc.).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Practical Time Management Systems</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Time Blocking</h3>
+                            <p class="text-gray-600">Divide your day into blocks dedicated to specific activities or types of work. This reduces context switching and creates structure.</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Themed Days</h3>
+                            <p class="text-gray-600">Assign themes to different days (e.g., Monday for academics, Tuesday for extracurriculars) to create focus and reduce decision fatigue.</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h3 class="font-bold text-lg text-gray-800 mb-3">Weekly Planning</h3>
+                            <p class="text-gray-600">Spend 20 minutes each Sunday planning the week ahead. Review commitments, schedule priorities, and leave buffer time for the unexpected.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-orange-50 to-green-50 p-8 rounded-2xl">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Sample Balanced Weekly Schedule</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b">
+                                    <th class="text-left p-2 font-semibold">Time</th>
+                                    <th class="text-center p-2 font-semibold">Monday</th>
+                                    <th class="text-center p-2 font-semibold">Tuesday</th>
+                                    <th class="text-center p-2 font-semibold">Wednesday</th>
+                                    <th class="text-center p-2 font-semibold">Thursday</th>
+                                    <th class="text-center p-2 font-semibold">Friday</th>
+                                    <th class="text-center p-2 font-semibold">Weekend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-2 font-medium">7-8 AM</td>
+                                    <td class="p-2 text-center bg-blue-50">Morning routine</td>
+                                    <td class="p-2 text-center bg-blue-50">Morning routine</td>
+                                    <td class="p-2 text-center bg-blue-50">Morning routine</td>
+                                    <td class="p-2 text-center bg-blue-50">Morning routine</td>
+                                    <td class="p-2 text-center bg-blue-50">Morning routine</td>
+                                    <td class="p-2 text-center bg-purple-50">Sleep in</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-medium">3-5 PM</td>
+                                    <td class="p-2 text-center bg-green-50">Study block</td>
+                                    <td class="p-2 text-center bg-yellow-50">Sports practice</td>
+                                    <td class="p-2 text-center bg-green-50">Study block</td>
+                                    <td class="p-2 text-center bg-yellow-50">Club meeting</td>
+                                    <td class="p-2 text-center bg-pink-50">Social time</td>
+                                    <td class="p-2 text-center bg-green-50">Study catch-up</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-2 font-medium">8-9 PM</td>
+                                    <td class="p-2 text-center bg-purple-50">Relaxation</td>
+                                    <td class="p-2 text-center bg-purple-50">Relaxation</td>
+                                    <td class="p-2 text-center bg-purple-50">Relaxation</td>
+                                    <td class="p-2 text-center bg-purple-50">Relaxation</td>
+                                    <td class="p-2 text-center bg-purple-50">Movie night</td>
+                                    <td class="p-2 text-center bg-orange-50">Family time</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-4 italic">Remember: This is a template, not a prescription. Adjust based on your unique commitments and energy patterns.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section (With Admin Features) -->
+        <section id="blog" class="hidden fade-in">
+            <div class="space-y-8">
+                <div class="text-center py-8 flex flex-col items-center">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Monthly Blog Posts</h2>
+                    <p class="text-xl text-gray-600 mb-6">Expert advice and science-based insights on teen health and wellness</p>
+                    
+                    <!-- Admin Login Button -->
+                    <button 
+                        onclick="showLoginModal()"
+                        class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 mb-8"
+                    >
+                        Admin: Manage Blog Posts
+                    </button>
+                </div>
+
+                <div id="blog-posts-container" class="space-y-8">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-2xl text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">New Posts Every Month</h3>
+                    <p class="text-gray-600 mb-6">Check back regularly for fresh content on teen health, wellness, and science-based strategies for thriving during adolescence.</p>
+                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300">
+                        Subscribe for Updates
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="hidden fade-in">
+            <div class="space-y-8">
+                <div class="text-center py-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">About Teen Health HQ</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We're dedicated to providing teens with science-based, practical solutions for the challenges of adolescence.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Our Mission</h3>
+                        <p class="text-gray-600 mb-4">
+                            Teen Health HQ was created to bridge the gap between scientific research and practical teen wellness. 
+                            We translate complex studies into actionable advice that teens can actually use in their daily lives.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Founded by Srihaan Edla, our platform is built with the authentic voice of a teen who understands 
+                            the unique challenges of adolescence and wants to help others navigate them successfully.
+                        </p>
+                        <p class="text-gray-600">
+                            We believe that with the right tools and knowledge, every teen can develop healthy habits that will serve them 
+                            throughout their lives—not just survive adolescence, but truly thrive.
+                        </p>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 p-8 rounded-2xl">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Founder's Story</h4>
+                        <div class="text-center mb-6">
+                            <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-white text-4xl">S</span>
+                            </div>
+                            <h5 class="font-semibold text-gray-800 text-lg">Srihaan Edla</h5>
+                            <p class="text-purple-600 font-medium">Founder, Teen Health HQ</p>
+                        </div>
+                        <p class="text-gray-700 text-sm">
+                            "I started Teen Health HQ because I saw so many of my peers struggling with sleep deprivation, 
+                            academic pressure, and burnout. As a teen myself, I wanted to create a resource that speaks our language 
+                            and provides real, science-backed solutions we can actually use. This isn't just another adult telling 
+                            teens what to do—it's a platform built by a teen, for teens."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">What Makes Us Different</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-purple-600 font-bold">1</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Teen-Created</h4>
+                            <p class="text-gray-600 text-sm">Content made by teens who understand your daily challenges</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-purple-600 font-bold">2</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Science-Backed</h4>
+                            <p class="text-gray-600 text-sm">Every tip and strategy is based on credible research</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-purple-600 font-bold">3</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Practical</h4>
+                            <p class="text-gray-600 text-sm">Real solutions you can implement in your daily routine</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-purple-600 font-bold">4</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Authentic</h4>
+                            <p class="text-gray-600 text-sm">No preaching—just honest advice from someone who gets it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-md w-full">
+            <div class="p-6 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Admin Login</h3>
+            </div>
+            
+            <div class="p-6 space-y-4">
+                <p class="text-gray-600">Enter your admin password to manage blog posts.</p>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input
+                        type="password"
+                        id="password-input"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        placeholder="Enter admin password"
+                    />
+                </div>
+                
+                <div class="flex justify-end space-x-4 pt-2">
+                    <button
+                        onclick="hideLoginModal()"
+                        class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        onclick="handleLogin()"
+                        class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                    >
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Editor Modal -->
+    <div id="blog-editor-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 id="editor-title" class="text-2xl font-bold text-gray-800">
+                    Create New Blog Post
+                </h3>
+                <button 
+                    onclick="hideBlogEditorModal()"
+                    class="text-gray-500 hover:text-gray-700 text-2xl"
+                >
+                    ×
+                </button>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                    <input
+                        type="text"
+                        id="post-title"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        placeholder="Enter blog post title"
+                    />
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Excerpt</label>
+                    <textarea
+                        id="post-excerpt"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        rows="3"
+                        placeholder="Enter a short description or summary"
+                    ></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Content</label>
+                    <textarea
+                        id="post-content"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        rows="12"
+                        placeholder="Write your blog content here..."
+                    ></textarea>
+                </div>
+                
+                <div class="flex justify-end space-x-4 pt-4">
+                    <button
+                        onclick="hideBlogEditorModal()"
+                        class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        onclick="saveBlogPost()"
+                        class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                    >
+                        Publish Post
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Teen Health HQ</h3>
+                    <p class="text-gray-300">
+                        Science-based guidance for teens on sleep, nutrition, productivity, time management, and overall well-being.
+                    </p>
+                    <p class="text-gray-400 text-sm mt-4">
+                        Founded by Srihaan Edla
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Topics</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <button onclick="showSection('sleep')" class="text-gray-300 hover:text-white transition-colors text-sm">
+                                Sleep Science
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showSection('nutrition')" class="text-gray-300 hover:text-white transition-colors text-sm">
+                                Nutrition Guide
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showSection('productivity')" class="text-gray-300 hover:text-white transition-colors text-sm">
+                                Productivity Mastery
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showSection('time-management')" class="text-gray-300 hover:text-white transition-colors text-sm">
+                                Time Management
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <button onclick="showSection('blog')" class="text-gray-300 hover:text-white transition-colors text-sm">
+                                Blog
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="showSection('about')" class="text-gray-300 hover:text-white transition-colors text-sm">
+                                About Us
+                            </button>
+                        </li>
+                        <li>
+                            <button class="text-gray-300 hover:text-white transition-colors text-sm">
+                                Monthly Challenges
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Stay Connected</h4>
+                    <p class="text-gray-300 mb-4 text-sm">
+                        New content every month with science-based tips for teen wellness.
+                    </p>
+                    <div class="flex space-x-4">
+                        <input
+                            type="email"
+                            placeholder="Your email"
+                            class="px-4 py-2 rounded-md text-gray-800 text-sm flex-grow"
+                        />
+                        <button class="bg-purple-600 px-4 py-2 rounded-md hover:bg-purple-700 transition-colors text-sm">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Teen Health HQ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize blog posts
+        let blogPosts = [
+            {
+                id: 1,
+                title: "Understanding Teen Sleep Patterns: Science-Based Solutions",
+                date: "June 15, 2023",
+                author: "Srihaan Edla",
+                excerpt: "Teenagers need 8-10 hours of sleep per night, but biological changes during adolescence can make this challenging. Learn how to reset your circadian rhythm and establish healthy sleep habits.",
+                content: "During adolescence, the body's internal clock shifts, making teens naturally feel more alert later at night and struggle to wake early in the morning. This isn't laziness—it's biology. To combat this, try gradually adjusting your bedtime by 15 minutes earlier each night until you reach your target. Avoid screens for at least an hour before bed, as blue light suppresses melatonin production. Create a relaxing bedtime routine with activities like reading or gentle stretching. Consistency is key—even on weekends, try to keep your sleep schedule within an hour of your weekday routine."
+            },
+            {
+                id: 2,
+                title: "Effective Study Techniques Backed by Cognitive Science",
+                date: "May 20, 2023",
+                author: "Srihaan Edla",
+                excerpt: "Discover evidence-based study methods that actually work, from spaced repetition to active recall, and say goodbye to cramming sessions that leave you exhausted.",
+                content: "Research in cognitive psychology has identified several highly effective study techniques. Spaced repetition involves reviewing material at increasing intervals, which strengthens long-term retention. Active recall means testing yourself rather than passively rereading notes—this forces your brain to retrieve information, creating stronger neural pathways. The Pomodoro Technique (25 minutes of focused work followed by a 5-minute break) can help maintain concentration and prevent burnout. Most importantly, get enough sleep after studying, as this is when your brain consolidates new information into long-term memory."
+            },
+            {
+                id: 3,
+                title: "Recognizing and Preventing Teen Burnout",
+                date: "April 12, 2023",
+                author: "Srihaan Edla",
+                excerpt: "Burnout isn't just for adults. Learn the signs of teen burnout and practical strategies to maintain balance in academics, extracurriculars, and social life.",
+                content: "Teen burnout manifests as chronic exhaustion, cynicism about activities you once enjoyed, and reduced performance despite increased effort. Prevention starts with setting realistic expectations—for yourself and from others. Schedule regular downtime, even if it's just 30 minutes daily to do something purely for enjoyment. Learn to say no to additional commitments when your plate is full. Practice mindfulness techniques like deep breathing or meditation to manage stress. Remember that your worth isn't defined by your achievements—rest is productive, not lazy."
+            }
+        ];
+
+        let isAdmin = false;
+        let editingPostId = null;
+
+        // Simple admin password
+        const ADMIN_PASSWORD = "teenhealth2023";
+
+        // Show login modal
+        function showLoginModal() {
+            document.getElementById('login-modal').classList.add('show');
+        }
+
+        // Hide login modal
+        function hideLoginModal() {
+            document.getElementById('login-modal').classList.remove('show');
+            document.getElementById('password-input').value = '';
+        }
+
+        // Handle login
+        function handleLogin() {
+            const password = document.getElementById('password-input').value;
+            if (password === ADMIN_PASSWORD) {
+                isAdmin = true;
+                hideLoginModal();
+                // Show admin actions on all blog posts
+                updateAdminUI();
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        // Show blog editor modal
+        function showBlogEditorModal() {
+            document.getElementById('blog-editor-modal').classList.add('show');
+            if (editingPostId) {
+                document.getElementById('editor-title').textContent = 'Edit Blog Post';
+                const post = blogPosts.find(p => p.id === editingPostId);
+                if (post) {
+                    document.getElementById('post-title').value = post.title;
+                    document.getElementById('post-excerpt').value = post.excerpt;
+                    document.getElementById('post-content').value = post.content;
+                }
+            } else {
+                document.getElementById('editor-title').textContent = 'Create New Blog Post';
+                document.getElementById('post-title').value = '';
+                document.getElementById('post-excerpt').value = '';
+                document.getElementById('post-content').value = '';
+            }
+        }
+
+        // Hide blog editor modal
+        function hideBlogEditorModal() {
+            document.getElementById('blog-editor-modal').classList.remove('show');
+        }
+
+        // Save blog post
+        function saveBlogPost() {
+            const title = document.getElementById('post-title').value;
+            const excerpt = document.getElementById('post-excerpt').value;
+            const content = document.getElementById('post-content').value;
+            
+            if (!title || !excerpt || !content) {
+                alert("Please fill in all fields");
+                return;
+            }
+            
+            if (editingPostId) {
+                // Update existing post
+                const index = blogPosts.findIndex(p => p.id === editingPostId);
+                if (index !== -1) {
+                    blogPosts[index] = {
+                        ...blogPosts[index],
+                        title,
+                        excerpt,
+                        content
+                    };
+                }
+            } else {
+                // Create new post
+                const newPost = {
+                    id: Date.now(),
+                    title,
+                    date: new Date().toLocaleDateString('en-US', { 
+                        month: 'long', 
+                        day: 'numeric', 
+                        year: 'numeric' 
+                    }),
+                    author: "Srihaan Edla",
+                    excerpt,
+                    content
+                };
+                blogPosts.unshift(newPost); // Add to beginning of array
+            }
+            
+            hideBlogEditorModal();
+            renderBlogPosts();
+            updateAdminUI();
+        }
+
+        // Edit blog post
+        function editBlogPost(postId) {
+            editingPostId = postId;
+            showBlogEditorModal();
+        }
+
+        // Delete blog post
+        function deleteBlogPost(postId) {
+            if (confirm("Are you sure you want to delete this post?")) {
+                blogPosts = blogPosts.filter(post => post.id !== postId);
+                renderBlogPosts();
+                updateAdminUI();
+            }
+        }
+
+        // Update admin UI elements
+        function updateAdminUI() {
+            if (isAdmin) {
+                // Show admin actions
+                document.querySelectorAll('.admin-actions').forEach(el => {
+                    el.classList.remove('hidden');
+                });
+                
+                // Change button text and functionality
+                const adminButton = document.querySelector('button[onclick="showLoginModal()"]');
+                if (adminButton) {
+                    adminButton.textContent = "Create New Post";
+                    adminButton.onclick = function() {
+                        editingPostId = null;
+                        showBlogEditorModal();
+                    };
+                }
+            }
+        }
+
+        // Render blog posts
+        function renderBlogPosts() {
+            const container = document.getElementById('blog-posts-container');
+            container.innerHTML = '';
+            
+            blogPosts.forEach(post => {
+                const postElement = document.createElement('article');
+                postElement.className = 'bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300';
+                postElement.innerHTML = `
+                    <div class="p-8">
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <span>${post.date}</span>
+                            <span class="mx-2">•</span>
+                            <span>By ${post.author}</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">${post.title}</h3>
+                        <p class="text-gray-600 mb-6">${post.excerpt}</p>
+                        <div class="border-t pt-6">
+                            <p class="text-gray-700 leading-relaxed mb-4">${post.content}</p>
+                            <div class="admin-actions ${isAdmin ? '' : 'hidden'}">
+                                <div class="flex space-x-4">
+                                    <button 
+                                        onclick="editBlogPost(${post.id})"
+                                        class="text-purple-600 hover:text-purple-800 font-medium"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button 
+                                        onclick="deleteBlogPost(${post.id})"
+                                        class="text-red-600 hover:text-red-800 font-medium"
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(postElement);
+            });
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Add fade-in animation
+            document.getElementById(sectionId).classList.add('fade-in');
+            
+            // Update URL
+            window.history.pushState({}, '', '#' + sectionId);
+            
+            // If showing blog section, render posts
+            if (sectionId === 'blog') {
+                renderBlogPosts();
+            }
+        }
+
+        // Handle section change from mobile dropdown
+        function handleSectionChange(select) {
+            showSection(select.value);
+        }
+
+        // Handle page load and hash changes
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('home');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sure modals are hidden on page load
+            document.getElementById('login-modal').classList.remove('show');
+            document.getElementById('blog-editor-modal').classList.remove('show');
+            
+            // Always show home page first
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById('home').classList.remove('hidden');
+            
+            // Render blog posts
+            renderBlogPosts();
+            
+            // Set up hash change listener
+            window.addEventListener('hashchange', handleHashChange);
+        });
+    </script>
+</body>
+</html>
